@@ -115,7 +115,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       if (!isDesktop()) {
-        alert("This page is made only for desktop/laptops. Please switch to a desktop device.");
+        alert("This page is best viewed on a desktop. Please switch to a desktop device.");
         document.body.innerHTML = "";
         return;
       }
@@ -136,9 +136,8 @@
         let newTop = Math.random() * (containerRect.height - noBtnRect.height);
         let newLeft = Math.random() * (containerRect.width - noBtnRect.width);
 
-        // Ensure the button stays within the container
-        newTop = Math.max(0, Math.min(newTop, containerRect.height - noBtnRect.height));
-        newLeft = Math.max(0, Math.min(newLeft, containerRect.width - noBtnRect.width));
+        // Ensure the button moves only upward within the container
+        newTop = Math.min(newTop, containerRect.height - noBtnRect.height);
 
         noBtn.style.top = `${newTop}px`;
         noBtn.style.left = `${newLeft}px`;
